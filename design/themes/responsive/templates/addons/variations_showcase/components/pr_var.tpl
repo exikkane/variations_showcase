@@ -42,7 +42,7 @@
                             {foreach $feature.variants as $variant}
                                 {assign var="variant_count" value=$variant_count+1}
 
-                                {if $variant_count <= 5}
+                                {if $variant_count <= 4}
                                     {if $variant.showed_product_id}
                                         {$variant_product_id = $variant.showed_product_id}
                                     {else}
@@ -81,12 +81,12 @@
                                 {/if}
                             {/foreach}
 
-                            {if $total_variants > 5}
+                            {if $total_variants > 4}
                                 <div class="ty-product-options__image--wrapper ty-product-options__image--more">
                                     <a href="{"products.view?product_id=`$product.product_id`"|fn_url}">
-                                    <div class="ty-product-options__more-colors">
-                                        +{$total_variants-5}
-                                    </div>
+                                        <div class="ty-product-options__more-colors">
+                                            +{$total_variants-4}
+                                        </div>
                                     </a>
                                 </div>
                             {/if}

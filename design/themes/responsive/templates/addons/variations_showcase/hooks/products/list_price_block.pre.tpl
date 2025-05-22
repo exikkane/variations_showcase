@@ -1,1 +1,0 @@
-{include file="addons/variations_showcase/components/pr_var.tpl" product=$product}
