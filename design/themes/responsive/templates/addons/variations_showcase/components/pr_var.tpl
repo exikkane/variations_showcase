@@ -51,8 +51,8 @@
 
                                     {if $variant_product_id}
                                         {if ($variant.amount || $allow_negative_amount || $is_buy_in_advance || $show_out_of_stock_products) && !$variant.product.disabled}
-                                            <a href="{"products.view?product_id=`$product.product_id`?variation_id=`$variant_product_id`"|fn_url}"
-                                            class="ty-product-options__image--wrapper {if $variant.variant_id == $feature.variant_id}ty-product-options__image--wrapper--active{/if}"
+                                            <a data-ca-target-id="ajax_update_{$product.product_id}" href="{"products.change_variant&variant_id=`$variant_product_id`&ob_id=`$product.product_id`&template=`$template`"|fn_url}"
+                                            class="ty-product-options__image--wrapper  cm-ajax"
                                             >
                                         {/if}
 
@@ -83,11 +83,10 @@
 
                             {if $total_variants > 4}
                                 <div class="ty-product-options__image--wrapper ty-product-options__image--more">
-                                    <a href="{"products.view?product_id=`$product.product_id`"|fn_url}">
-                                        <div class="ty-product-options__more-colors">
-                                            +{$total_variants-4}
-                                        </div>
-                                    </a>
+                                    <div class="ty-product-options__more-colors">
+                                        <a href="{$product_url|fn_link_attach:"product_id={$product.product_id}"|fn_url}"
+                                        >+{$total_variants-4}</a>
+                                    </div>
                                 </div>
                             {/if}
 
